@@ -6,7 +6,9 @@
     "scripts": {
         "start": "nodemon",
         "debug": "node --inspect-brk index.js",
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "css-build": "sass sass/main.sass:public/css/style.css",
+        "css-watch": "sass --watch sass/main.sass:public/css/style.css"
     },
     "repository": {
         "type": "git",
@@ -24,8 +26,12 @@
     },
     "homepage": "https://github.com/indiansage/todo-nodejs#readme",
     "dependencies": {
+        "bulma": "^0.9.0",
+        "bulma-calendar": "^6.0.9",
+        "bulma-checkradio": "^1.1.1",
         "ejs": "^3.1.3",
         "express": "^4.17.1",
-        "mongoose": "^5.9.27"
+        "mongoose": "^5.9.27",
+        "node-sass": "^4.14.1"
     }
 }

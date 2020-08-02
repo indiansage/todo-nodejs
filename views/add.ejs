@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="./css/style.css" type="text/css" />
+        <title>Todo List</title>
+    </head>
+    <body>
+        <section class="section">
+            <div class="columns">
+                <div class="column is-offset-2 is-8">
+                    <div class="box">
+                        <h1 class="title has-text-centered">
+                            Plan_It
+                        </h1>
+                        <p class="subtitle has-text-centered">
+                            Never forget a thing.
+                        </p>
+                        <div class="tabs">
+                            <ul>
+                                <li class="is-active"><a>Add task</a></li>
+                                <li>
+                                    <a href="/pending">Pending tasks</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="field">
+                            <label class="label">Description</label>
+                            <div class="control">
+                                <textarea
+                                    class="textarea"
+                                    placeholder="What do you need to do?"
+                                ></textarea>
+                            </div>
+                        </div>
+                        <div class="columns">
+                            <div class="column is-6">
+                                <div class="field">
+                                    <label class="label">Category</label>
+                                    <div class="control">
+                                        <div class="select is-fullwidth">
+                                            <select>
+                                                <option>Personal</option>
+                                                <option>Work</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="column is-6">
+                                <div class="field">
+                                    <label class="label">Due Date</label>
+                                    <div class="control">
+                                        <input
+                                            class="input"
+                                            type="datetime-local"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="control has-text-centered">
+                                <a class="button is-primary">
+                                    Add
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </body>
+</html>

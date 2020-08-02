@@ -1,3 +1,6 @@
-module.exports.home = (req, res) => {
-    res.render('home');
+module.exports.add = (req, res) => {
+    res.render('add');
+};
+module.exports.pending = (req, res) => {
+    res.render('pending');
 };
