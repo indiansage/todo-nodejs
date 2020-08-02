@@ -6,6 +6,8 @@ const db = require('./config/mongoose');
 const tasks = require('./models/task');
 app.set('view engine', 'ejs');
 app.set('views', './views');
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static(`${__dirname}/assets`));
 app.use('/', router);
 
 app.listen(port, (err) => {
