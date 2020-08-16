@@ -1,5 +1,30 @@
+.task-list
+    display: flex
+    flex-direction: column
 .task
-    padding-bottom: 1rem
+    display: flex
+    justify-content: space-between
+    padding: 1rem
     border-bottom-color: #dbdbdb
     border-bottom-style: solid
     border-bottom-width: 1px
+    -webkit-user-select: none  /* Chrome all / Safari all */
+    -moz-user-select: none     /* Firefox all */
+    -ms-user-select: none      /* IE 10+ */
+    user-select: none
+.task:first-child
+    padding-top: 0
+.task:last-child
+    border-bottom: none
+.task-info
+    display: flex
+    max-width: 30rem
+.task-description
+    padding-right: 0.5rem
+.task-tag
+    cursor: default
+.task-due-date
+    font-style: italic
+    padding-right: 0.5rem
+.task-delete
+    cursor: pointer

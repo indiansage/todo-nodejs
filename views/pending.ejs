@@ -5,7 +5,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="./css/style.css" type="text/css" />
         <title>Todo List</title>
-        
     </head>
     <body>
         <section class="section">
@@ -25,24 +24,25 @@
                             </ul>
                         </div>
                         <ul class="task-list">
-                            <li class="task">
-                                <div class="task-info">
-                                    <div class="task-description">
-                                        <label class="checkbox">
-                                            <input type="checkbox" />
-                                            Annual report submission deadline
-                                        </label>
+                            <%for (let task of taskList){%>
+                                <li class="task">
+                                    <div class="task-info">
+                                        <div class="field task-description">
+                                            <input class="is-checkradio" type="checkbox" name="task-checkbox-<%= task.id %>" id='task-checkbox-<%= task.id %>'>
+                                            <label for="task-checkbox-<%= task.id %>"><span class='task-name'><%= task.name %></span></label>
+                                        </div>
+                                        <div class="task-tag">
+                                            <span class="tag is-success is-medium">
+                                                <%= task.category.name %> 
+                                            </span>
+                                        </div>
                                     </div>
-                                    <div class="task-due-date">
-                                        Due on XYZ
+                                    <div class="task-actions">
+                                        <span class='task-due-date'>Due on <%= task.dueDate %></span>
+                                        <span class='task-delete'><i class="fas fa-trash"></i></span>
                                     </div>
-                                </div>
-                                <div class="task-tag">
-                                    <span class="tag is-success is-medium">
-                                        Work
-                                    </span>
-                                </div>
-                            </li>
+                                </li>
+                            <%}%>
                         </ul>
                     </div>
                 </div>

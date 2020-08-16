@@ -1,3 +1,14 @@
+const dropdownElement = document.querySelector('.dropdown');
+
+document.addEventListener('click', function(event) {
+  const isClickInside = dropdownElement.contains(event.target);
+
+  if (!isClickInside) {
+    //the click was outside the dropdownElement, close dropdown
+    dropdownElement.classList.remove('is-active');
+    
+  }
+});
 
 function showMenu(elem){
     if (elem.classList.contains('is-active')) {
@@ -19,4 +30,4 @@ function selectCategory(elem){
     document.querySelector('.dropdown-text').innerHTML = elem.innerHTML;
 }
 
-const datepicker = new Datepicker(document.querySelector('.date-picker'), {});
+const datepicker = new Datepicker(document.querySelector('.date-picker'), {format:'d M yyyy'});
