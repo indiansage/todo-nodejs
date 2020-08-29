@@ -7,12 +7,15 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "Node12 app",
+            "name": "Launch node12 app",
             "skipFiles": [
                 "<node_internals>/**"
             ],
             "program": "${workspaceFolder}/index.js",
             "runtimeVersion": "12.16.3",
+            "runtimeExecutable": "nodemon",
+            "restart": true,
+            "console": "integratedTerminal"
         }
     ]
 }

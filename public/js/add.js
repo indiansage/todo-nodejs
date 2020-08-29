@@ -34,7 +34,7 @@ function selectCategory(elem){
     }
 }
 
-const datepicker = new Datepicker(document.querySelector('.date-picker'), {format:'d M yyyy'});
+new Datepicker(document.querySelector('.date-picker'), {format:'d M yyyy'});
 
 function handleAddTask(){
     let invalid = false;
@@ -57,8 +57,8 @@ function handleAddTask(){
     if(!invalid){
         //POST request
         var xhr = new XMLHttpRequest();
-        var url = '/add';
-        //var params = `description=${description}&category=${category}&dueDate=${dueDate}`;
+        var url = '/task';
+
         xhr.open('POST', url, true);
 
         //Send the proper header information along with the request
@@ -66,7 +66,10 @@ function handleAddTask(){
 
         xhr.onreadystatechange = function() {//Call a function when the state changes.
             if(xhr.readyState === 4 && xhr.status === 200) {
-                window.location.href = '/pending';
+                document.querySelector('.alert').classList.remove('hide');
+                document.querySelector('textarea.textarea').value = '';
+                document.querySelector('span.dropdown-text').innerHTML = 'Select a category';
+                new Datepicker(document.querySelector('.date-picker'), {format:'d M yyyy'});
             }
         }
         var data = JSON.stringify({"description": description, "category": category, "dueDate": dueDate});
@@ -78,4 +81,7 @@ function disableInvalidation(elem) {
     if(elem.classList.contains('is-danger')){
         elem.classList.remove('is-danger');
     }
+}
+function hideNotification() {
+    document.querySelector('.alert').classList.add('hide');
 }

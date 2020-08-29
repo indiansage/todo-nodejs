@@ -6,30 +6,39 @@ const addPage = (req, res) => {
     }
     res.render('add', initialData);
 };
-const addNew = (req, res) => {
-	console.log(req.body);
-	tasks.create(req.body, (error, new_task) => {
+const addNewTask = (req, res) => {
+	tasks.create(req.body, (error) => {
 		if (error) {
-			console.log('error in creating a task!');
-			return;
+			console.error('Error in creating task in DB');
+			return res.status(500).send();
 		}
-		return;
+		res.status(200).send();
 	});
 };
-const pending = (req, res) => {
-    tasks.find({}, function (error, task) {
-        console.log(task);
+
+const pendingPage = (req, res) => {
+    tasks.find({}, (error, tasks) => {
 		if (error) {
-			console.log('There was an error in fetching the tasks from the database');
+			console.error('Error in fetching tasks from DB');
 			return;
 		}
-		var initialData = {
-			taskList: task
+		const initialData = {
+			taskList: tasks
 		};
 		return res.render('pending', initialData);
 	});
 };
 
+const deleteTask = (req, res) => {
+	const id = req.params.id;
+	tasks.deleteOne({ _id: id }, (error) => {
+		if (error) {
+			console.error('Error in deleting task from DB');
+			return;
+		}
+		res.send();
+	});
+};
 module.exports = {
-    addPage,addNew,pending
+    addPage,addNewTask,pendingPage,deleteTask
 }

@@ -19,15 +19,15 @@
                         </p>
                         <div class="tabs">
                             <ul>
-                                <li><a href="/add">Add task</a></li>
+                                <li><a href="/addPage">Add task</a></li>
                                 <li class="is-active"><a>Pending tasks</a></li>
                             </ul>
                         </div>
                         <ul class="task-list">
                             <%for (let task of taskList){%>
                                 <li class="task">
-                                    <div class="task-info">
-                                        <div class="field task-description">
+                                    
+                                        <div class="task-description">
                                             <input class="is-checkradio" type="checkbox" name="task-checkbox-<%= task._id %>" id='task-checkbox-<%= task._id %>'>
                                             <label for="task-checkbox-<%= task._id %>"><span class='task-name'><%= task.description %></span></label>
                                         </div>
@@ -36,11 +36,11 @@
                                                 <%= task.category %>
                                             </span>
                                         </div>
-                                    </div>
-                                    <div class="task-actions">
+                                    
+                                    
                                         <span class='task-due-date'>Due on <%= task.dueDate %></span>
-                                        <span class='task-delete'><i class="fas fa-trash"></i></span>
-                                    </div>
+                                        <span class='task-delete' onclick="deleteTask('<%= task._id %>')"><i class="fas fa-trash"></i></span>
+                                   
                                 </li>
                             <%}%>
                         </ul>
@@ -48,5 +48,7 @@
                 </div>
             </div>
         </section>
+        <!-- <script src="./js/datepicker.min.js"></script>     -->
+        <script src="./js/pending.js"></script>
     </body>
 </html>

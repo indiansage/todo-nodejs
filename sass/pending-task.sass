@@ -3,8 +3,9 @@
     flex-direction: column
 .task
     display: flex
+    align-items: center
     justify-content: space-between
-    padding: 1rem
+    padding: 0.5rem
     border-bottom-color: #dbdbdb
     border-bottom-style: solid
     border-bottom-width: 1px
@@ -20,11 +21,15 @@
     display: flex
     max-width: 30rem
 .task-description
+    flex: 1 0 5rem
     padding-right: 0.5rem
 .task-tag
     cursor: default
+    flex: 0 0 3rem
+    margin-right: 1rem
 .task-due-date
     font-style: italic
     padding-right: 0.5rem
+    flex: 0 0 10rem
 .task-delete
     cursor: pointer
