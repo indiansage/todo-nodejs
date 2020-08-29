@@ -31,6 +31,7 @@
                                 <textarea
                                     class="textarea"
                                     placeholder="What do you need to do?"
+                                    oninput="disableInvalidation(this)"
                                 ></textarea>
                             </div>
                         </div>
@@ -62,9 +63,7 @@
                                             >
                                                 <div class="dropdown-content">
                                                     <%for (let category of categoryList){%>
-                                                    <a class="dropdown-item" onclick="selectCategory(this)">
-                                                        <%= category.name %>  
-                                                    </a>
+                                                    <a class="dropdown-item" onclick="selectCategory(this)"><%= category.name %></a>
                                                     <%}%>
                                                 </div>
                                             </div>
@@ -80,6 +79,7 @@
                                             class="input date-picker"
                                             type="text"
                                             placeholder="Select a due date"
+                                            oninput="disableInvalidation(this)"
                                         />
                                     </div>
                                 </div>
@@ -87,7 +87,7 @@
                         </div>
                         <div class="field">
                             <div class="control has-text-centered">
-                                <a class="button is-primary">
+                                <a class="button is-primary add-task-button" onclick="handleAddTask()">
                                     Add
                                 </a>
                             </div>

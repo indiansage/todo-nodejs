@@ -17032,6 +17032,19 @@ readers do not read off random characters that represent icons */
   font-weight: 900;
 }
 
+.dropdown.invalid {
+  border: 1px solid #f14668;
+  border-radius: 4px;
+}
+
+.dropdown-text {
+  color: #dbdbdb;
+}
+
+.dropdown-text.category-chosen {
+  color: #363636;
+}
+
 .task-list {
   display: flex;
   flex-direction: column;

@@ -1,30 +1,23 @@
-//import express
+
 const express = require('express');
-const app = express();
+const bodyParser = require('body-parser');
 
-//use port 8000
-const port = 8000;
-
-//routes
 const router = require('./routes');
-app.use('/', router);
-
-//database config
 const db = require('./config/mongoose');
-
-//models
 const tasks = require('./models/task');
 
-//views
+const app = express();
+
+const port = 8000;
+
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
+app.use(express.static('public'));
 app.set('view engine', 'ejs');
 app.set('views', './views');
 
-//middleware
-//for query params
-app.use(express.urlencoded({ extended: true }));
-
-//for static files
-app.use(express.static('public'));
+app.use(router);
 
 //listener
 app.listen(port, (err) => {

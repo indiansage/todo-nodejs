@@ -28,12 +28,12 @@
                                 <li class="task">
                                     <div class="task-info">
                                         <div class="field task-description">
-                                            <input class="is-checkradio" type="checkbox" name="task-checkbox-<%= task.id %>" id='task-checkbox-<%= task.id %>'>
-                                            <label for="task-checkbox-<%= task.id %>"><span class='task-name'><%= task.name %></span></label>
+                                            <input class="is-checkradio" type="checkbox" name="task-checkbox-<%= task._id %>" id='task-checkbox-<%= task._id %>'>
+                                            <label for="task-checkbox-<%= task._id %>"><span class='task-name'><%= task.description %></span></label>
                                         </div>
                                         <div class="task-tag">
                                             <span class="tag is-success is-medium">
-                                                <%= task.category.name %> 
+                                                <%= task.category %>
                                             </span>
                                         </div>
                                     </div>

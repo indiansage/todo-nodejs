@@ -1,13 +1,35 @@
-module.exports.add = (req, res) => {
+const tasks = require('../models/task');
+
+const addPage = (req, res) => {
     let initialData = {
-        categoryList:[{name:'Personal',color:'red'},{name:'Work',color:'green'}]
+        categoryList:[{name:'Personal'},{name:'Work'}]
     }
     res.render('add', initialData);
 };
-module.exports.pending = (req, res) => {
-    let initialData = {
-        taskList:[{id:1,name:'Task1 Task1 Task1 Task1Task1 Task1 Task1 Task1Task1 Task1 Task1 Task1Task1 Task1 Task1 Task1Task1 Task1 Task1 Task1Task1 Task1 Task1 Task1',category:{name:'Personal',color:'red'},dueDate:'21 Jan 2020', state:'done'},
-        {id:2,name:'Task2',category:{name:'Work',color:'green'},dueDate:'22 Jan 2020', state:'pending'},]
-    }
-    res.render('pending', initialData);
+const addNew = (req, res) => {
+	console.log(req.body);
+	tasks.create(req.body, (error, new_task) => {
+		if (error) {
+			console.log('error in creating a task!');
+			return;
+		}
+		return;
+	});
 };
+const pending = (req, res) => {
+    tasks.find({}, function (error, task) {
+        console.log(task);
+		if (error) {
+			console.log('There was an error in fetching the tasks from the database');
+			return;
+		}
+		var initialData = {
+			taskList: task
+		};
+		return res.render('pending', initialData);
+	});
+};
+
+module.exports = {
+    addPage,addNew,pending
+}
