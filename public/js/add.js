@@ -68,6 +68,7 @@ function handleAddTask(){
             if(xhr.readyState === 4 && xhr.status === 200) {
                 document.querySelector('.alert').classList.remove('hide');
                 document.querySelector('textarea.textarea').value = '';
+                document.querySelector('input.date-picker').value = '';
                 document.querySelector('span.dropdown-text').innerHTML = 'Select a category';
                 new Datepicker(document.querySelector('.date-picker'), {format:'d M yyyy'});
             }

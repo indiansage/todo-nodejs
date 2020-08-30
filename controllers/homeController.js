@@ -39,6 +39,17 @@ const deleteTask = (req, res) => {
 		res.send();
 	});
 };
+const updateTask = (req, res) => {
+	console.log(req.body)
+	const id = req.params.id;
+	tasks.findOneAndUpdate({ _id: id }, req.body,{ useFindAndModify: false }, (error, result) => {
+		if (error) {
+			console.error('Error in updating task from DB');
+			return;
+		}
+		res.send(result);
+	});
+};
 module.exports = {
-    addPage,addNewTask,pendingPage,deleteTask
+    addPage,addNewTask,pendingPage,deleteTask,updateTask
 }

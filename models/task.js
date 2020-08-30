@@ -10,6 +10,9 @@ const task_schema = new mongoose.Schema({
 	},
 	dueDate: {
 		type: String
+	},
+	done: {
+		type: Boolean
 	}
 });
 

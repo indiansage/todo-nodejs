@@ -3,23 +3,24 @@ const express = require('express');
 const bodyParser = require('body-parser');
 
 const router = require('./routes');
-const db = require('./config/mongoose');
-const tasks = require('./models/task');
+require('./config/mongoose');
 
 const app = express();
 
 const port = 8000;
 
-app.use(bodyParser.urlencoded({ extended: false }));
+//Using JSON requests
 app.use(bodyParser.json());
 
+//Frontend
 app.use(express.static('public'));
 app.set('view engine', 'ejs');
 app.set('views', './views');
 
+//Routes
 app.use(router);
 
-//listener
+//Listener
 app.listen(port, (err) => {
     if (err) {
         console.log('error');

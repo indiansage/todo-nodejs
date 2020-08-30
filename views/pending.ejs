@@ -25,19 +25,18 @@
                         </div>
                         <ul class="task-list">
                             <%for (let task of taskList){%>
-                                <li class="task">
-                                    
+                                <li class="task" id='task-container-<%= task._id %>'>
                                         <div class="task-description">
-                                            <input class="is-checkradio" type="checkbox" name="task-checkbox-<%= task._id %>" id='task-checkbox-<%= task._id %>'>
-                                            <label for="task-checkbox-<%= task._id %>"><span class='task-name'><%= task.description %></span></label>
+                                            <input class="is-checkradio" type="checkbox" name="task-checkbox-<%= task._id %>" id='task-checkbox-<%= task._id %>' <%= task.done ? "checked" : "" %>>
+                                            <label for="task-checkbox-<%= task._id %>" onclick="updateTask('<%= task._id %>', '<%= task.description %>', '<%= task.category %>', '<%= task.dueDate %>')">
+                                                <span class='task-name <%= task.done ? "text-strike-through" : "" %>'><%= task.description %></span>
+                                            </label>
                                         </div>
                                         <div class="task-tag">
-                                            <span class="tag is-success is-medium">
+                                            <span class="tag is-medium">
                                                 <%= task.category %>
                                             </span>
                                         </div>
-                                    
-                                    
                                         <span class='task-due-date'>Due on <%= task.dueDate %></span>
                                         <span class='task-delete' onclick="deleteTask('<%= task._id %>')"><i class="fas fa-trash"></i></span>
                                    

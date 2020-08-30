@@ -7,5 +7,6 @@ router.get('/addPage', homeController.addPage);
 router.get('/pendingPage', homeController.pendingPage);
 router.post('/task', homeController.addNewTask);
 router.delete('/task/:id', homeController.deleteTask);
+router.put('/task/:id', homeController.updateTask);
 
 module.exports = router;
