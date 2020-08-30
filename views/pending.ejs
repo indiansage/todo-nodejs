@@ -19,10 +19,15 @@
                         </p>
                         <div class="tabs">
                             <ul>
-                                <li><a href="/addPage">Add task</a></li>
+                                <li><a href="/add">Add task</a></li>
                                 <li class="is-active"><a>Pending tasks</a></li>
                             </ul>
                         </div>
+                        <%if(taskList.length===0){%>
+                            <p class="subtitle has-text-centered">
+                                No tasks created yet
+                            </p>
+                        <%}%>
                         <ul class="task-list">
                             <%for (let task of taskList){%>
                                 <li class="task" id='task-container-<%= task._id %>'>
